@@ -1,0 +1,8 @@
+CLOSET.exe — versão 3.27
+
+1. Extraia TODO o ZIP em uma pasta nova.
+2. Dê dois cliques em index.html (abre no navegador; não precisa instalar nada).
+3. Confira "versão 3.27" no título da aba.
+
+Mantenha a pasta assets junto dos arquivos do jogo.
+Opcional (Node.js): npm run dev para servir localmente; npm test para rodar as verificações.
