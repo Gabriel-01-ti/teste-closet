@@ -1,0 +1,253 @@
+{
+  "label": "Isadora",
+  "width": 1024,
+  "height": 1536,
+  "folder": "assets/characters/isadora",
+  "face": [
+    435,
+    111,
+    110,
+    142
+  ],
+  "layers": {
+    "assets/characters/isadora/base.png": {
+      "x": 258,
+      "y": 16,
+      "w": 516,
+      "h": 1509
+    },
+    "assets/characters/isadora/arms.png": {
+      "x": 262,
+      "y": 552,
+      "w": 510,
+      "h": 361
+    },
+    "assets/characters/isadora/identity.png": {
+      "x": 315,
+      "y": 16,
+      "w": 339,
+      "h": 609,
+      "source": "original photograph pixels, no face generation"
+    },
+    "assets/characters/isadora/top_orig.png": {
+      "x": 421,
+      "y": 315,
+      "w": 223,
+      "h": 277
+    },
+    "assets/characters/isadora/top_red.png": {
+      "x": 421,
+      "y": 311,
+      "w": 222,
+      "h": 281
+    },
+    "assets/characters/isadora/top_blue.png": {
+      "x": 421,
+      "y": 311,
+      "w": 222,
+      "h": 281
+    },
+    "assets/characters/isadora/top_pink.png": {
+      "x": 421,
+      "y": 311,
+      "w": 222,
+      "h": 281
+    },
+    "assets/characters/isadora/top_green.png": {
+      "x": 421,
+      "y": 311,
+      "w": 222,
+      "h": 281
+    },
+    "assets/characters/isadora/top_lilac.png": {
+      "x": 421,
+      "y": 311,
+      "w": 222,
+      "h": 281
+    },
+    "assets/characters/isadora/top_terracotta.png": {
+      "x": 421,
+      "y": 311,
+      "w": 222,
+      "h": 281
+    },
+    "assets/characters/isadora/top_navy.png": {
+      "x": 421,
+      "y": 311,
+      "w": 222,
+      "h": 281
+    },
+    "assets/characters/isadora/top_cream.png": {
+      "x": 421,
+      "y": 311,
+      "w": 222,
+      "h": 281
+    },
+    "assets/characters/isadora/top_teal.png": {
+      "x": 421,
+      "y": 311,
+      "w": 222,
+      "h": 281
+    },
+    "assets/characters/isadora/top_stripe.png": {
+      "x": 421,
+      "y": 311,
+      "w": 222,
+      "h": 281
+    },
+    "assets/characters/isadora/top_polka.png": {
+      "x": 421,
+      "y": 311,
+      "w": 222,
+      "h": 281
+    },
+    "assets/characters/isadora/top_check.png": {
+      "x": 421,
+      "y": 311,
+      "w": 222,
+      "h": 281
+    },
+    "assets/characters/isadora/top_wrap.png": {
+      "x": 421,
+      "y": 311,
+      "w": 222,
+      "h": 281
+    },
+    "assets/characters/isadora/bottom_white.png": {
+      "x": 300,
+      "y": 596,
+      "w": 377,
+      "h": 872
+    },
+    "assets/characters/isadora/bottom_black.png": {
+      "x": 300,
+      "y": 596,
+      "w": 377,
+      "h": 872
+    },
+    "assets/characters/isadora/bottom_white_blue.png": {
+      "x": 300,
+      "y": 596,
+      "w": 377,
+      "h": 872
+    },
+    "assets/characters/isadora/bottom_skirt.png": {
+      "x": 317,
+      "y": 597,
+      "w": 414,
+      "h": 854
+    },
+    "assets/characters/isadora/bottom_skirt_red.png": {
+      "x": 317,
+      "y": 597,
+      "w": 414,
+      "h": 854
+    },
+    "assets/characters/isadora/bottom_denim.png": {
+      "x": 358,
+      "y": 597,
+      "w": 320,
+      "h": 336
+    },
+    "assets/characters/isadora/bottom_mini.png": {
+      "x": 363,
+      "y": 584,
+      "w": 315,
+      "h": 290
+    },
+    "assets/characters/isadora/dress_wrap-dress.png": {
+      "x": 322,
+      "y": 314,
+      "w": 358,
+      "h": 979,
+      "cage": [
+        [
+          0,
+          314,
+          620,
+          628
+        ],
+        [
+          0.1,
+          389,
+          410,
+          642
+        ],
+        [
+          0.28,
+          595,
+          406,
+          622
+        ],
+        [
+          0.48,
+          800,
+          365,
+          679
+        ],
+        [
+          0.72,
+          1040,
+          343,
+          665
+        ],
+        [
+          1,
+          1292,
+          320,
+          650
+        ]
+      ]
+    },
+    "assets/characters/isadora/shoe_white.png": {
+      "x": 321,
+      "y": 1375,
+      "w": 275,
+      "h": 150
+    },
+    "assets/characters/isadora/shoe_black.png": {
+      "x": 321,
+      "y": 1375,
+      "w": 275,
+      "h": 150
+    },
+    "assets/characters/isadora/shoe_red.png": {
+      "x": 321,
+      "y": 1375,
+      "w": 275,
+      "h": 150
+    },
+    "assets/characters/isadora/accessory_necklace.png": {
+      "x": 472,
+      "y": 312,
+      "w": 91,
+      "h": 51
+    },
+    "assets/characters/isadora/accessory_bracelets.png": {
+      "x": 277,
+      "y": 767,
+      "w": 476,
+      "h": 48
+    },
+    "assets/characters/isadora/accessory_band.png": {
+      "x": 278,
+      "y": 772,
+      "w": 33,
+      "h": 14
+    },
+    "assets/characters/isadora/accessory_bag-red.png": {
+      "x": 364,
+      "y": 318,
+      "w": 287,
+      "h": 528
+    },
+    "assets/characters/isadora/accessory_bag-cream.png": {
+      "x": 364,
+      "y": 318,
+      "w": 287,
+      "h": 528
+    }
+  },
+  "neutralBase": "Top esportivo e short opacos",
+  "reference": "assets/characters/isadora/reference.png"
+}

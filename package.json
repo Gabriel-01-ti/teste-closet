@@ -1,10 +1,14 @@
 {
   "name": "closet-exe",
-  "version": "3.27.0",
+  "version": "4.1.0",
   "private": true,
   "description": "Moda, caos e análise combinatória",
   "scripts": {
     "dev": "node scripts/serve.cjs",
-    "test": "node tests/verify.cjs && node tests/ui-flow.cjs && node tests/countdown.cjs && node tests/counting.cjs"
+    "test": "node tests/verify.cjs",
+    "test:browser": "node tests/browser-all.cjs"
+  },
+  "devDependencies": {
+    "playwright": "1.62.1"
   }
 }

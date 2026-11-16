@@ -252,3 +252,9 @@ dialog::backdrop{background:rgba(29,22,40,.66);backdrop-filter:blur(5px)}
 /* Proporção natural das personagens (640:1000), sem esticar o corpo ou as roupas. */
 .avatar{width:336px;height:525px;}
 .active-round .avatar{width:315px;height:492px;}
+
+/* v4: independent fitting and a separate review phase. */
+.item-card.blocked{opacity:.58;background:repeating-linear-gradient(135deg,#eee8ed,#eee8ed 8px,#e6dfe6 8px,#e6dfe6 9px)}
+.item-card.blocked .item-meta{color:#9c354e;font-weight:700}.item-meta{line-height:1.5;white-space:normal}
+.review-panel{padding:13px;background:#e5efdf;border:1px solid #9bae8f;border-radius:5px;margin:0 0 14px}.review-panel[hidden]{display:none}.review-panel>div:first-child{display:flex;justify-content:space-between;gap:12px;align-items:center}.review-panel b{font:700 10px var(--mono)}.review-panel output{font:700 23px var(--mono)}.review-panel p{font-size:11px;line-height:1.5}.review-panel #reviewBar{height:100%;width:100%;background:#779869}.remove-piece{margin:8px 0;padding:5px 0}.lab-link{display:block;margin-top:17px;font-size:11px;text-decoration:underline;color:#785091}.avatar:has(canvas[width="1024"]){aspect-ratio:2/3!important}.rig-canvas[width="1024"]{aspect-ratio:2/3!important}.category-tabs:has([data-category="dress"]){display:flex;flex-wrap:wrap}.category-tabs:has([data-category="dress"]) .category-tab{flex:1 0 auto;font-size:10px}.review-panel~.item-grid{scroll-behavior:smooth}
+.item-grid .item-card{height:auto;min-height:153px;padding-bottom:12px}.item-card .item-name{min-height:28px;line-height:1.35}.item-card .item-meta{font-size:9px;line-height:1.5;margin-top:5px}.category-tab small{font:9px var(--mono);white-space:nowrap}

@@ -1,0 +1,247 @@
+{
+  "label": "Nicole",
+  "width": 1024,
+  "height": 1536,
+  "folder": "assets/characters/nicole",
+  "face": [
+    440,
+    105,
+    100,
+    135
+  ],
+  "layers": {
+    "assets/characters/nicole/base.png": {
+      "x": 255,
+      "y": 20,
+      "w": 507,
+      "h": 1497
+    },
+    "assets/characters/nicole/arms.png": {
+      "x": 259,
+      "y": 552,
+      "w": 497,
+      "h": 332
+    },
+    "assets/characters/nicole/identity.png": {
+      "x": 318,
+      "y": 20,
+      "w": 318,
+      "h": 570,
+      "source": "original photograph pixels, no face generation"
+    },
+    "assets/characters/nicole/top_orig.png": {
+      "x": 377,
+      "y": 304,
+      "w": 210,
+      "h": 245
+    },
+    "assets/characters/nicole/top_red.png": {
+      "x": 377,
+      "y": 304,
+      "w": 210,
+      "h": 245
+    },
+    "assets/characters/nicole/top_blue.png": {
+      "x": 377,
+      "y": 304,
+      "w": 210,
+      "h": 245
+    },
+    "assets/characters/nicole/top_pink.png": {
+      "x": 377,
+      "y": 304,
+      "w": 210,
+      "h": 245
+    },
+    "assets/characters/nicole/top_green.png": {
+      "x": 377,
+      "y": 304,
+      "w": 210,
+      "h": 245
+    },
+    "assets/characters/nicole/top_lilac.png": {
+      "x": 377,
+      "y": 304,
+      "w": 210,
+      "h": 245
+    },
+    "assets/characters/nicole/top_terracotta.png": {
+      "x": 377,
+      "y": 304,
+      "w": 210,
+      "h": 245
+    },
+    "assets/characters/nicole/top_navy.png": {
+      "x": 377,
+      "y": 304,
+      "w": 210,
+      "h": 245
+    },
+    "assets/characters/nicole/top_cream.png": {
+      "x": 377,
+      "y": 304,
+      "w": 210,
+      "h": 245
+    },
+    "assets/characters/nicole/top_teal.png": {
+      "x": 377,
+      "y": 304,
+      "w": 210,
+      "h": 245
+    },
+    "assets/characters/nicole/top_stripe.png": {
+      "x": 377,
+      "y": 304,
+      "w": 210,
+      "h": 245
+    },
+    "assets/characters/nicole/top_polka.png": {
+      "x": 377,
+      "y": 304,
+      "w": 210,
+      "h": 245
+    },
+    "assets/characters/nicole/top_check.png": {
+      "x": 377,
+      "y": 304,
+      "w": 210,
+      "h": 245
+    },
+    "assets/characters/nicole/top_wrap.png": {
+      "x": 377,
+      "y": 304,
+      "w": 210,
+      "h": 245
+    },
+    "assets/characters/nicole/bottom_white.png": {
+      "x": 365,
+      "y": 577,
+      "w": 425,
+      "h": 891
+    },
+    "assets/characters/nicole/bottom_black.png": {
+      "x": 365,
+      "y": 577,
+      "w": 425,
+      "h": 891
+    },
+    "assets/characters/nicole/bottom_white_blue.png": {
+      "x": 365,
+      "y": 577,
+      "w": 425,
+      "h": 891
+    },
+    "assets/characters/nicole/bottom_skirt.png": {
+      "x": 352,
+      "y": 590,
+      "w": 432,
+      "h": 875
+    },
+    "assets/characters/nicole/bottom_skirt_red.png": {
+      "x": 352,
+      "y": 590,
+      "w": 432,
+      "h": 875
+    },
+    "assets/characters/nicole/bottom_denim.png": {
+      "x": 366,
+      "y": 590,
+      "w": 302,
+      "h": 335
+    },
+    "assets/characters/nicole/bottom_mini.png": {
+      "x": 364,
+      "y": 590,
+      "w": 308,
+      "h": 349
+    },
+    "assets/characters/nicole/dress_wrap-dress.png": {
+      "x": 346,
+      "y": 306,
+      "w": 404,
+      "h": 1073,
+      "cage": [
+        [
+          0,
+          306,
+          384,
+          601
+        ],
+        [
+          0.29,
+          588,
+          405,
+          575
+        ],
+        [
+          0.48,
+          790,
+          365,
+          653
+        ],
+        [
+          0.73,
+          1070,
+          352,
+          697
+        ],
+        [
+          1,
+          1378,
+          344,
+          762
+        ]
+      ]
+    },
+    "assets/characters/nicole/shoe_white.png": {
+      "x": 376,
+      "y": 1384,
+      "w": 386,
+      "h": 133
+    },
+    "assets/characters/nicole/shoe_black.png": {
+      "x": 376,
+      "y": 1384,
+      "w": 386,
+      "h": 133
+    },
+    "assets/characters/nicole/shoe_red.png": {
+      "x": 376,
+      "y": 1384,
+      "w": 386,
+      "h": 133
+    },
+    "assets/characters/nicole/accessory_necklace.png": {
+      "x": 425,
+      "y": 302,
+      "w": 91,
+      "h": 51
+    },
+    "assets/characters/nicole/accessory_bracelets.png": {
+      "x": 286,
+      "y": 743,
+      "w": 439,
+      "h": 25
+    },
+    "assets/characters/nicole/accessory_band.png": {
+      "x": 590,
+      "y": 458,
+      "w": 81,
+      "h": 51
+    },
+    "assets/characters/nicole/accessory_bag-red.png": {
+      "x": 363,
+      "y": 318,
+      "w": 244,
+      "h": 528
+    },
+    "assets/characters/nicole/accessory_bag-cream.png": {
+      "x": 363,
+      "y": 318,
+      "w": 244,
+      "h": 528
+    }
+  },
+  "neutralBase": "Top esportivo e short opacos",
+  "reference": "assets/characters/nicole/reference.png"
+}

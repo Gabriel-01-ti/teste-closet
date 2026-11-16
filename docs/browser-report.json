@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "assertions": 101,
+  "individualItems": 31,
+  "topBottomCombinations": 98,
+  "characterRegression": "4 other characters pixel-identical to original compositor",
+  "prices": "25% reduction at catalogue source",
+  "budgetLimit": 70,
+  "reviewSeconds": 18,
+  "independentClocks": true,
+  "offline": true,
+  "desktop": [
+    1440,
+    1120
+  ],
+  "mobile": [
+    390,
+    844
+  ],
+  "consoleErrors": []
+}

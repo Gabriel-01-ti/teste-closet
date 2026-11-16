@@ -1,0 +1,253 @@
+{
+  "label": "Sophia",
+  "width": 1024,
+  "height": 1536,
+  "folder": "assets/characters/sophia",
+  "face": [
+    438,
+    104,
+    106,
+    137
+  ],
+  "layers": {
+    "assets/characters/sophia/base.png": {
+      "x": 263,
+      "y": 14,
+      "w": 506,
+      "h": 1511
+    },
+    "assets/characters/sophia/arms.png": {
+      "x": 265,
+      "y": 552,
+      "w": 503,
+      "h": 344
+    },
+    "assets/characters/sophia/identity.png": {
+      "x": 311,
+      "y": 14,
+      "w": 348,
+      "h": 598,
+      "source": "original photograph pixels, no face generation"
+    },
+    "assets/characters/sophia/top_orig.png": {
+      "x": 330,
+      "y": 343,
+      "w": 384,
+      "h": 201
+    },
+    "assets/characters/sophia/top_red.png": {
+      "x": 330,
+      "y": 343,
+      "w": 384,
+      "h": 201
+    },
+    "assets/characters/sophia/top_blue.png": {
+      "x": 330,
+      "y": 343,
+      "w": 384,
+      "h": 201
+    },
+    "assets/characters/sophia/top_pink.png": {
+      "x": 330,
+      "y": 343,
+      "w": 384,
+      "h": 201
+    },
+    "assets/characters/sophia/top_green.png": {
+      "x": 330,
+      "y": 343,
+      "w": 384,
+      "h": 201
+    },
+    "assets/characters/sophia/top_lilac.png": {
+      "x": 330,
+      "y": 343,
+      "w": 384,
+      "h": 201
+    },
+    "assets/characters/sophia/top_terracotta.png": {
+      "x": 330,
+      "y": 343,
+      "w": 384,
+      "h": 201
+    },
+    "assets/characters/sophia/top_navy.png": {
+      "x": 330,
+      "y": 343,
+      "w": 384,
+      "h": 201
+    },
+    "assets/characters/sophia/top_cream.png": {
+      "x": 330,
+      "y": 343,
+      "w": 384,
+      "h": 201
+    },
+    "assets/characters/sophia/top_teal.png": {
+      "x": 330,
+      "y": 343,
+      "w": 384,
+      "h": 201
+    },
+    "assets/characters/sophia/top_stripe.png": {
+      "x": 330,
+      "y": 343,
+      "w": 384,
+      "h": 201
+    },
+    "assets/characters/sophia/top_polka.png": {
+      "x": 330,
+      "y": 343,
+      "w": 384,
+      "h": 201
+    },
+    "assets/characters/sophia/top_check.png": {
+      "x": 330,
+      "y": 343,
+      "w": 384,
+      "h": 201
+    },
+    "assets/characters/sophia/top_wrap.png": {
+      "x": 330,
+      "y": 343,
+      "w": 384,
+      "h": 201
+    },
+    "assets/characters/sophia/bottom_white.png": {
+      "x": 353,
+      "y": 585,
+      "w": 347,
+      "h": 883
+    },
+    "assets/characters/sophia/bottom_black.png": {
+      "x": 353,
+      "y": 585,
+      "w": 347,
+      "h": 883
+    },
+    "assets/characters/sophia/bottom_white_blue.png": {
+      "x": 353,
+      "y": 585,
+      "w": 347,
+      "h": 883
+    },
+    "assets/characters/sophia/bottom_skirt.png": {
+      "x": 324,
+      "y": 578,
+      "w": 493,
+      "h": 897
+    },
+    "assets/characters/sophia/bottom_skirt_red.png": {
+      "x": 324,
+      "y": 578,
+      "w": 493,
+      "h": 897
+    },
+    "assets/characters/sophia/bottom_denim.png": {
+      "x": 356,
+      "y": 588,
+      "w": 342,
+      "h": 349
+    },
+    "assets/characters/sophia/bottom_mini.png": {
+      "x": 351,
+      "y": 588,
+      "w": 352,
+      "h": 364
+    },
+    "assets/characters/sophia/dress_wrap-dress.png": {
+      "x": 335,
+      "y": 345,
+      "w": 441,
+      "h": 1063,
+      "cage": [
+        [
+          0,
+          345,
+          435,
+          681
+        ],
+        [
+          0.15,
+          532,
+          331,
+          715
+        ],
+        [
+          0.22,
+          591,
+          437,
+          615
+        ],
+        [
+          0.4,
+          786,
+          355,
+          698
+        ],
+        [
+          0.66,
+          1080,
+          355,
+          717
+        ],
+        [
+          1,
+          1407,
+          334,
+          781
+        ]
+      ]
+    },
+    "assets/characters/sophia/shoe_white.png": {
+      "x": 451,
+      "y": 1405,
+      "w": 129,
+      "h": 120
+    },
+    "assets/characters/sophia/shoe_black.png": {
+      "x": 451,
+      "y": 1405,
+      "w": 129,
+      "h": 120
+    },
+    "assets/characters/sophia/shoe_red.png": {
+      "x": 451,
+      "y": 1405,
+      "w": 129,
+      "h": 120
+    },
+    "assets/characters/sophia/accessory_necklace.png": {
+      "x": 472,
+      "y": 286,
+      "w": 91,
+      "h": 51
+    },
+    "assets/characters/sophia/accessory_bracelets.png": {
+      "x": 279,
+      "y": 748,
+      "w": 465,
+      "h": 55
+    },
+    "assets/characters/sophia/accessory_band.png": {
+      "x": 280,
+      "y": 789,
+      "w": 33,
+      "h": 14
+    },
+    "assets/characters/sophia/accessory_bag-red.png": {
+      "x": 392,
+      "y": 318,
+      "w": 258,
+      "h": 528
+    },
+    "assets/characters/sophia/accessory_bag-cream.png": {
+      "x": 392,
+      "y": 318,
+      "w": 258,
+      "h": 528
+    }
+  },
+  "neutralBase": "Blusa ciganinha neutra e short opaco",
+  "reference": "assets/characters/sophia/reference.png"
+}

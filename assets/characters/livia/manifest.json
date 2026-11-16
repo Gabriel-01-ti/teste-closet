@@ -1,0 +1,253 @@
+{
+  "label": "Lívia",
+  "width": 1024,
+  "height": 1536,
+  "folder": "assets/characters/livia",
+  "face": [
+    447,
+    103,
+    108,
+    138
+  ],
+  "layers": {
+    "assets/characters/livia/base.png": {
+      "x": 278,
+      "y": 16,
+      "w": 495,
+      "h": 1506
+    },
+    "assets/characters/livia/arms.png": {
+      "x": 282,
+      "y": 552,
+      "w": 477,
+      "h": 337
+    },
+    "assets/characters/livia/identity.png": {
+      "x": 329,
+      "y": 16,
+      "w": 328,
+      "h": 533,
+      "source": "original photograph pixels, no face generation"
+    },
+    "assets/characters/livia/top_orig.png": {
+      "x": 324,
+      "y": 302,
+      "w": 366,
+      "h": 283
+    },
+    "assets/characters/livia/top_red.png": {
+      "x": 324,
+      "y": 302,
+      "w": 366,
+      "h": 283
+    },
+    "assets/characters/livia/top_blue.png": {
+      "x": 324,
+      "y": 302,
+      "w": 366,
+      "h": 283
+    },
+    "assets/characters/livia/top_pink.png": {
+      "x": 324,
+      "y": 302,
+      "w": 366,
+      "h": 283
+    },
+    "assets/characters/livia/top_green.png": {
+      "x": 324,
+      "y": 302,
+      "w": 366,
+      "h": 283
+    },
+    "assets/characters/livia/top_lilac.png": {
+      "x": 324,
+      "y": 302,
+      "w": 366,
+      "h": 283
+    },
+    "assets/characters/livia/top_terracotta.png": {
+      "x": 324,
+      "y": 302,
+      "w": 366,
+      "h": 283
+    },
+    "assets/characters/livia/top_navy.png": {
+      "x": 324,
+      "y": 302,
+      "w": 366,
+      "h": 283
+    },
+    "assets/characters/livia/top_cream.png": {
+      "x": 324,
+      "y": 302,
+      "w": 366,
+      "h": 283
+    },
+    "assets/characters/livia/top_teal.png": {
+      "x": 324,
+      "y": 302,
+      "w": 366,
+      "h": 283
+    },
+    "assets/characters/livia/top_stripe.png": {
+      "x": 324,
+      "y": 302,
+      "w": 366,
+      "h": 283
+    },
+    "assets/characters/livia/top_polka.png": {
+      "x": 324,
+      "y": 302,
+      "w": 366,
+      "h": 283
+    },
+    "assets/characters/livia/top_check.png": {
+      "x": 324,
+      "y": 302,
+      "w": 366,
+      "h": 283
+    },
+    "assets/characters/livia/top_wrap.png": {
+      "x": 324,
+      "y": 302,
+      "w": 366,
+      "h": 283
+    },
+    "assets/characters/livia/bottom_white.png": {
+      "x": 356,
+      "y": 569,
+      "w": 441,
+      "h": 930
+    },
+    "assets/characters/livia/bottom_black.png": {
+      "x": 356,
+      "y": 569,
+      "w": 441,
+      "h": 930
+    },
+    "assets/characters/livia/bottom_white_blue.png": {
+      "x": 356,
+      "y": 569,
+      "w": 441,
+      "h": 930
+    },
+    "assets/characters/livia/bottom_skirt.png": {
+      "x": 353,
+      "y": 577,
+      "w": 443,
+      "h": 894
+    },
+    "assets/characters/livia/bottom_skirt_red.png": {
+      "x": 353,
+      "y": 577,
+      "w": 443,
+      "h": 894
+    },
+    "assets/characters/livia/bottom_denim.png": {
+      "x": 356,
+      "y": 577,
+      "w": 328,
+      "h": 362
+    },
+    "assets/characters/livia/bottom_mini.png": {
+      "x": 356,
+      "y": 577,
+      "w": 336,
+      "h": 370
+    },
+    "assets/characters/livia/dress_wrap-dress.png": {
+      "x": 323,
+      "y": 292,
+      "w": 466,
+      "h": 1089,
+      "cage": [
+        [
+          0,
+          292,
+          330,
+          699
+        ],
+        [
+          0.12,
+          420,
+          322,
+          691
+        ],
+        [
+          0.27,
+          575,
+          430,
+          612
+        ],
+        [
+          0.48,
+          790,
+          357,
+          675
+        ],
+        [
+          0.73,
+          1080,
+          350,
+          736
+        ],
+        [
+          1,
+          1380,
+          350,
+          797
+        ]
+      ]
+    },
+    "assets/characters/livia/shoe_white.png": {
+      "x": 400,
+      "y": 1384,
+      "w": 373,
+      "h": 138
+    },
+    "assets/characters/livia/shoe_black.png": {
+      "x": 400,
+      "y": 1384,
+      "w": 373,
+      "h": 138
+    },
+    "assets/characters/livia/shoe_red.png": {
+      "x": 400,
+      "y": 1384,
+      "w": 373,
+      "h": 138
+    },
+    "assets/characters/livia/accessory_necklace.png": {
+      "x": 466,
+      "y": 307,
+      "w": 91,
+      "h": 51
+    },
+    "assets/characters/livia/accessory_bracelets.png": {
+      "x": 304,
+      "y": 785,
+      "w": 434,
+      "h": 31
+    },
+    "assets/characters/livia/accessory_band.png": {
+      "x": 305,
+      "y": 790,
+      "w": 33,
+      "h": 14
+    },
+    "assets/characters/livia/accessory_bag-red.png": {
+      "x": 384,
+      "y": 318,
+      "w": 259,
+      "h": 528
+    },
+    "assets/characters/livia/accessory_bag-cream.png": {
+      "x": 384,
+      "y": 318,
+      "w": 259,
+      "h": 528
+    }
+  },
+  "neutralBase": "Top esportivo e short opacos",
+  "reference": "assets/characters/livia/reference.png"
+}

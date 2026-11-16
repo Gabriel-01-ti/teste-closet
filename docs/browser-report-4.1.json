@@ -1,0 +1,78 @@
+{
+  "status": "PASS",
+  "checks": 400,
+  "characters": [
+    {
+      "id": "nicole",
+      "options": 31,
+      "combinations": 98,
+      "faceNativePixels": [
+        440,
+        105,
+        100,
+        135
+      ],
+      "sourceFaceUnchanged": true
+    },
+    {
+      "id": "livia",
+      "options": 31,
+      "combinations": 98,
+      "faceNativePixels": [
+        447,
+        103,
+        108,
+        138
+      ],
+      "sourceFaceUnchanged": true
+    },
+    {
+      "id": "ana",
+      "options": 31,
+      "combinations": 98,
+      "faceNativePixels": [
+        470,
+        100,
+        60,
+        110
+      ],
+      "sourceFaceUnchanged": true
+    },
+    {
+      "id": "sophia",
+      "options": 31,
+      "combinations": 98,
+      "faceNativePixels": [
+        438,
+        104,
+        106,
+        137
+      ],
+      "sourceFaceUnchanged": true
+    },
+    {
+      "id": "isadora",
+      "options": 31,
+      "combinations": 98,
+      "faceNativePixels": [
+        435,
+        111,
+        110,
+        142
+      ],
+      "sourceFaceUnchanged": true
+    }
+  ],
+  "totalOptions": 155,
+  "totalCombinations": 490,
+  "approvedAnaUnchanged": true,
+  "newSprites": 132,
+  "reviewSeconds": 18,
+  "independentClocks": true,
+  "offline": true,
+  "mobile": [
+    390,
+    844
+  ],
+  "errors": []
+}

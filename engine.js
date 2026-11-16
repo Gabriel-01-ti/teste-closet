@@ -4,7 +4,7 @@
  const SHAPES={
   nicole:{top:'Cropped',own:'branco',bottom:'white',ownBlack:false},
   livia:{top:'Camiseta cropped',own:'branca',bottom:'black',ownBlack:false},
-  ana:{top:'Body mesh',own:'estampado',bottom:'denim',ownBlack:false},
+  ana:{top:'Cropped',own:'listrado original',bottom:'white',ownBlack:true},
   sophia:{top:'Blusa ciganinha',own:'branca',bottom:'skirt',ownBlack:false},
   isadora:{top:'Cropped alça',own:'preto',bottom:'mini',ownBlack:true}
  };
@@ -57,38 +57,48 @@
    {id:'bracelets',name:'Pulseiras prateadas',color:'#b9bcc4',price:30,kind:'bracelets',tags:['cafe','travel','party']}
   ]
  };
- const categories=Object.keys(items);
+ // A price is reduced once, at the catalogue source; all views and rules share it.
+ const discount=p=>({...p,originalPrice:p.price,price:Math.round(p.price*.75)});
+ for(const c of ['bottom','shoe','accessory'])items[c]=items[c].map(discount);
+ const shoeCatalogue=items.shoe.map(p=>({...p}));
+ const categories=['top','bottom','shoe','accessory'];
+ const dresses=[discount({id:'wrap-dress',name:'Vestido midi transpassado terracota',color:'#be5b41',price:130,formal:true,kind:'dress',tags:['party','date','graduation','fashion']})];
+ items.dress=[];
+ const budgetLimit=70;
+ const wardrobeCategories=()=>items.dress.length?[...categories,'dress']:categories;
+ const outfitPieces=look=>look.dress?[look.dress,look.shoe,look.accessory]:categories.map(c=>look[c]);
+ const mainPieces=look=>look.dress?[look.dress,look.dress,look.shoe]:['top','bottom','shoe'].map(c=>look[c]);
+ const selectedSlots=look=>look.dress?2+Number(!!look.shoe)+Number(!!look.accessory):categories.filter(c=>look[c]).length;
  let activeCharacter='nicole';
- function topsFor(id){const sh=SHAPES[id]||SHAPES.nicole;const vr=VARIANTS[id]||VARIANTS.nicole;return topBase.map(t=>({...t,tags:[...t.tags],name:sh.top+' '+(t.id==='orig'?sh.own:(STYLE_LABELS[t.id]||vr[t.id])),black:t.id==='orig'&&sh.ownBlack}));}
- function setCharacter(id){if(!SHAPES[id])id='nicole';activeCharacter=id;items.top.splice(0,items.top.length,...topsFor(id));}
+ function topsFor(id){const sh=SHAPES[id]||SHAPES.nicole;const vr=VARIANTS[id]||VARIANTS.nicole;return topBase.map(t=>discount({...t,tags:[...t.tags],name:id==='ana'?(t.id==='orig'?'Cropped listrado original':(['blue','green','navy','stripe','polka','check'].includes(t.id)?'Camiseta cropped ':'Blusa de cetim ')+(STYLE_LABELS[t.id]||vr[t.id])):sh.top+' '+(t.id==='orig'?sh.own:(STYLE_LABELS[t.id]||vr[t.id])),black:t.id==='orig'&&sh.ownBlack}));}
+ function setCharacter(id){if(!SHAPES[id])id='nicole';activeCharacter=id;items.shoe.splice(0,items.shoe.length,...shoeCatalogue.map(p=>({...p,name:id==='sophia'?p.name.replace('Tênis','Sapato'):p.name})));items.top.splice(0,items.top.length,...topsFor(id));items.dress.splice(0,items.dress.length,...dresses.map(p=>({...p,name:({nicole:'Vestido midi de alças terracota',livia:'Vestido midi de malha terracota',sophia:'Vestido midi ciganinha terracota',isadora:'Vestido midi assimétrico terracota'})[id]||p.name})));}
  function characterProfile(id){return SHAPES[id]?id:'nicole';}
  function ownBottom(id){return (SHAPES[id]||SHAPES.nicole).bottom;}
  setCharacter('nicole');
  const occasions=[{id:'party',name:'Festa',icon:'🪩',desc:'Brilhe até o último flash.'},{id:'date',name:'Primeiro encontro',icon:'💌',desc:'A primeira impressão é sua.'},{id:'travel',name:'Viagem',icon:'✈️',desc:'Pronta para o próximo destino.'},{id:'show',name:'Show',icon:'🎤',desc:'Seu look também é o headliner.'},{id:'graduation',name:'Formatura',icon:'🎓',desc:'Uma noite para guardar.'},{id:'cafe',name:'Café',icon:'☕',desc:'Um café. Muitos olhares.'},{id:'fashion',name:'Fashion Week',icon:'📸',desc:'A rua é sua passarela.'}];
  const rules=[{id:'elegant',name:'Precisa ser elegante',icon:'✨',help:'Ao menos 2 peças elegantes entre blusa, parte de baixo e sapato.'},{id:'red',name:'Uma peça vermelha',icon:'♥',help:'Vermelho na blusa, parte de baixo, sapato ou acessório.'},{id:'noBlack',name:'Nada de preto',icon:'✕',help:'Nenhuma peça preta: blusa, parte de baixo, sapato ou acessório.'}];
- const cards=[{id:'ripped',icon:'💔',title:'Sua saia rasgou.',desc:'Todas as saias estão bloqueadas.',short:'Sem saias'},{id:'rain',icon:'🌧️',title:'Começou a chover.',desc:'O tênis branco está bloqueado: ele sujaria na poça.',short:'Sem tênis branco'},{id:'friend',icon:'👯',title:'Look repetido!',desc:'Sua amiga apareceu com a mesma blusa. Essa peça está bloqueada.',short:'Blusa bloqueada'},{id:'budget',icon:'💳',title:'Cartão recusado.',desc:'Agora cada peça precisa custar até R$ 90.',short:'Até R$ 90 por peça'},{id:'paparazzi',icon:'📸',title:'Paparazzi!',desc:'Agora é obrigatório usar um acessório.',short:'Acessório obrigatório'}];
+ const cards=[{id:'ripped',icon:'💔',title:'Sua saia rasgou.',desc:'Todas as saias estão bloqueadas.',short:'Sem saias'},{id:'rain',icon:'🌧️',title:'Começou a chover.',desc:'O calçado branco está bloqueado: ele sujaria na poça.',short:'Sem calçado branco'},{id:'friend',icon:'👯',title:'Look repetido!',desc:'Sua amiga apareceu com a mesma blusa. Essa peça está bloqueada.',short:'Blusa bloqueada'},{id:'budget',icon:'💳',title:'Cartão recusado.',desc:'Cada peça pode custar até R$ 70. Os preços e os bloqueios aparecem no closet.',short:'Até R$ 70 por peça'},{id:'paparazzi',icon:'📸',title:'Paparazzi!',desc:'Agora é obrigatório usar um acessório.',short:'Acessório obrigatório'}];
  const pick=(arr,rng=Math.random)=>arr[Math.floor(rng()*arr.length)];
- function available(round,category){return items[category].filter(p=>{const c=round.chaos;if(!c)return true;if(c.id==='ripped'&&p.kind==='skirt')return false;if(c.id==='rain'&&p.open)return false;if(c.id==='friend'&&p.id===c.blockedId)return false;if(c.id==='budget'&&p.price>90)return false;if(c.id==='paparazzi'&&p.id==='none')return false;return true;});}
- function ruleOK(id,look){if(id==='elegant')return ['top','bottom','shoe'].filter(c=>look[c]?.formal).length>=2;if(id==='red')return categories.some(c=>look[c]?.red);if(id==='noBlack')return !categories.some(c=>look[c]?.black);return true;}
- function complete(look){return categories.every(c=>!!look[c]);}
- function valid(round,look){return complete(look)&&round.rules.every(r=>ruleOK(r.id,look))&&categories.every(c=>available(round,c).some(p=>p.id===look[c].id));}
- function enumerate(round){const a=categories.map(c=>available(round,c));const result=[];for(const top of a[0])for(const bottom of a[1])for(const shoe of a[2])for(const accessory of a[3]){const l={top,bottom,shoe,accessory};if(valid(round,l))result.push(l);}return result;}
+ function available(round,category){return items[category].filter(p=>{const c=round.chaos;if(!c)return true;if(c.id==='ripped'&&p.kind==='skirt')return false;if(c.id==='rain'&&p.open)return false;if(c.id==='friend'&&category==='top'&&p.id===c.blockedId)return false;if(c.id==='budget'&&p.price>(c.limit??budgetLimit))return false;if(c.id==='paparazzi'&&p.id==='none')return false;return true;});}
+ function ruleOK(id,look){const pieces=outfitPieces(look);if(id==='elegant')return mainPieces(look).filter(p=>p?.formal).length>=2;if(id==='red')return pieces.some(p=>p?.red);if(id==='noBlack')return !pieces.some(p=>p?.black);return true;}
+ function complete(look){return !!(look.shoe&&look.accessory&&(look.dress||look.top&&look.bottom));}
+ function legal(round,look){return (look.dress?['dress','shoe','accessory']:categories).every(c=>look[c]&&available(round,c).some(p=>p.id===look[c].id));}
+ function valid(round,look){return complete(look)&&!(look.dress&&(look.top||look.bottom))&&round.rules.every(r=>ruleOK(r.id,look))&&legal(round,look);}
+ function candidates(round){const a=Object.fromEntries(wardrobeCategories().map(c=>[c,available(round,c)])),result=[];for(const top of a.top)for(const bottom of a.bottom)for(const shoe of a.shoe)for(const accessory of a.accessory)result.push({top,bottom,shoe,accessory});for(const dress of a.dress||[])for(const shoe of a.shoe)for(const accessory of a.accessory)result.push({dress,shoe,accessory});return result;}
+ function enumerate(round){return candidates(round).filter(l=>valid(round,l));}
  function countBreakdown(round){
-  const pools=Object.fromEntries(categories.map(c=>[c,available(round,c)]));
-  const baseTotal=categories.reduce((n,c)=>n*items[c].length,1),total=categories.reduce((n,c)=>n*pools[c].length,1);
+  const pools=Object.fromEntries(wardrobeCategories().map(c=>[c,available(round,c).length]));
+  const baseTotal=candidates({...round,chaos:null}).length,looks=candidates(round),total=looks.length;
   const steps=round.rules.map(rule=>({id:rule.id,name:rule.name,before:0,discount:0,after:0}));
-  for(const top of pools.top)for(const bottom of pools.bottom)for(const shoe of pools.shoe)for(const accessory of pools.accessory){
-   const look={top,bottom,shoe,accessory};
-   for(let i=0;i<steps.length;i++){if(!ruleOK(steps[i].id,look)){steps[i].discount++;break;}}
-  }
+  for(const look of looks){for(const step of steps){if(!ruleOK(step.id,look)){step.discount++;break;}}}
   let remaining=total;for(const step of steps){step.before=remaining;remaining-=step.discount;step.after=remaining;}
-  return {pools:Object.fromEntries(categories.map(c=>[c,pools[c].length])),baseTotal,total,blockedByChaos:baseTotal-total,steps,discounted:total-remaining,valid:remaining};
+  return {pools,baseTotal,total,blockedByChaos:baseTotal-total,steps,discounted:total-remaining,valid:remaining};
  }
  function createRound(rng=Math.random){const sorted=[...rules];const first=pick(sorted,rng);const second=pick(sorted.filter(r=>r!==first),rng);return {occasion:pick(occasions,rng),rules:[first,second],chaos:null};}
- function chaosOptions(round,look={}){const before=enumerate(round).length;return cards.map(c=>({...c,blockedId:c.id==='friend'?(look.top?.id||'pink'):null})).filter(c=>{const n=enumerate({...round,chaos:c}).length;return n>0&&n<before;});}
+ function chaosOptions(round,look={}){const before=enumerate(round).length;return cards.map(c=>({...c,blockedId:c.id==='friend'?(look.top?.id||'pink'):null,limit:c.id==='budget'?budgetLimit:undefined})).filter(c=>{const n=enumerate({...round,chaos:c}).length;return n>0&&n<before;});}
  function applyChaos(round,card){return {...round,chaos:card};}
  function answers(n,rng=Math.random){const s=new Set([n]);for(const v of [n+6,Math.max(1,n-6),n*2,Math.max(1,Math.floor(n/2)),n+12]){if(s.size===4)break;s.add(v);}const a=[...s];for(let i=a.length-1;i>0;i--){const j=Math.floor(rng()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
- function score(round,look,remaining,correct,total=60){const filled=categories.filter(c=>look[c]).length;const hits=round.rules.filter(r=>ruleOK(r.id,look)).length;const fit=['top','bottom','shoe'].filter(c=>look[c]?.tags.includes(round.occasion.id)).length;const legal=categories.every(c=>!look[c]||available(round,c).some(p=>p.id===look[c].id));const style=legal?Math.round(60*hits/round.rules.length+30*fit/3+10*filled/4):0;const speed=complete(look)?Math.round(60+40*Math.max(0,Math.min(total,remaining))/total):0;const iq=correct?100:0;return {style,speed,iq,total:style+speed+iq};}
+ function score(round,look,remaining,correct,total=60){const filled=selectedSlots(look),hits=round.rules.filter(r=>ruleOK(r.id,look)).length,fit=mainPieces(look).filter(p=>p?.tags.includes(round.occasion.id)).length;const allowed=outfitPieces(look).every(p=>!p||Object.values(items).some(pool=>pool.some(q=>q.id===p.id&&q.name===p.name&&available(round,wardrobeCategories().find(c=>items[c].includes(q))).includes(q))));const style=allowed?Math.round(60*hits/round.rules.length+30*fit/3+10*filled/4):0;const speed=complete(look)?Math.round(60+40*Math.max(0,Math.min(total,remaining))/total):0;return {style,speed,iq:correct?100:0,total:style+speed+(correct?100:0)};}
  function rank(total){return total<=120?'Fashion Disaster 💀':total<=200?'Closet Rookie':total<=260?'It Girl ✨':'CHER WOULD APPROVE 💅';}
- const api={ownBottom,characterProfile,countBreakdown,setCharacter,items,categories,occasions,rules,cards,pick,available,ruleOK,complete,valid,enumerate,createRound,chaosOptions,applyChaos,answers,score,rank};if(typeof module!=='undefined')module.exports=api;else root.ClosetEngine=api;
+ const api={budgetLimit,wardrobeCategories,outfitPieces,mainPieces,selectedSlots,candidates,ownBottom,characterProfile,countBreakdown,setCharacter,items,categories,occasions,rules,cards,pick,available,ruleOK,complete,valid,enumerate,createRound,chaosOptions,applyChaos,answers,score,rank};if(typeof module!=='undefined')module.exports=api;else root.ClosetEngine=api;
 })(typeof globalThis!=='undefined'?globalThis:this);

@@ -1,19 +1,20 @@
 /* CLOSET.exe — avatares: cada personagem é a própria imagem enviada, em camadas recortadas e ajustadas ao corpo. */
 (function(root){'use strict';
 const W=640,H=1000,K=.625;
+const fitted=typeof module!=='undefined'?require('./fitting-profiles.js'):(root.ClosetFittingProfiles||{});
 const characters=[
  {id:'nicole',label:'Nicole',subtitle:'Cropped e wide leg'},
  {id:'livia',label:'Lívia',subtitle:'Camiseta e jeans'},
- {id:'ana',label:'Ana',subtitle:'Body mesh e short'},
+ {id:'ana',label:'Ana',subtitle:'Provador fotográfico'},
  {id:'sophia',label:'Sophia',subtitle:'Ciganinha e saia'},
  {id:'isadora',label:'Isadora',subtitle:'Cropped e saia mini'}
 ];
-const OWN={nicole:'white',livia:'black',ana:'denim',sophia:'skirt',isadora:'mini'};
+const OWN={nicole:'white',livia:'black',ana:'white',sophia:'skirt',isadora:'mini'};
 // pontos de referência do corpo, já no espaço normalizado (mesmo tamanho/eixo para todas)
 const LM={
  nicole:{N:[512, 361],SR:[644, 371],hL:[393, 751],WL:[307, 789],WR:[723, 789],hR:[628, 751]},
  livia:{N:[512, 363],SR:[686, 373],hL:[393, 751],WL:[312, 830],WR:[729, 830],hR:[657, 751]},
- ana:{N:[512, 334],SR:[682, 344],hL:[364, 785],WL:[291, 815],WR:[730, 815],hR:[684, 785]},
+ ana:{N:[814, 472],SR:[1014, 488],hL:[571, 1200],WL:[537, 1230],WR:[1112, 1275],hR:[1030, 1200]},
  sophia:{N:[512, 359],SR:[703, 393],hL:[390, 771],WL:[296, 840],WR:[743, 842],hR:[633, 771]},
  isadora:{N:[512, 351],SR:[700, 381],hL:[368, 819],WL:[299, 804],WR:[740, 829],hR:[681, 819]}
 };
@@ -21,8 +22,31 @@ const getCharacter=id=>characters.find(c=>c.id===id)||characters[0];
 const profile=id=>getCharacter(id).id;
 const src=(id,layer)=>'assets/c/'+id+'_'+layer+'.webp';
 const cache=new Map();
-function image(path){if(!cache.has(path))cache.set(path,new Promise((ok,fail)=>{const i=new Image();i.decoding='async';i.onload=()=>ok(i);i.onerror=()=>fail(new Error('Falha ao carregar '+path));i.src=path;}));return cache.get(path);}
+function image(path){if(cache.has(path)){const p=cache.get(path);cache.delete(path);cache.set(path,p);return p;}const promise=new Promise((ok,fail)=>{const i=new Image();i.decoding='async';i.onload=()=>ok(i);i.onerror=()=>{cache.delete(path);fail(new Error('Falha ao carregar '+path));};i.src=path;});cache.set(path,promise);while(cache.size>36)cache.delete(cache.keys().next().value);return promise;}
 function layerList(look,id){
+ if(fitted[id]){
+  const dir=fitted[id].folder,list=[dir+'/base.png'];
+  if(look.shoe)list.push(dir+'/shoe_'+look.shoe.id+'.png');
+  if(look.dress)list.push(dir+'/dress_'+look.dress.id+'.png');
+  else {if(look.bottom)list.push(dir+'/bottom_'+look.bottom.id+'.png');if(look.top)list.push(dir+'/top_'+look.top.id+'.png');}
+  list.push(dir+'/arms.png');
+  if(look.accessory&&look.accessory.id!=='none')list.push(dir+'/accessory_'+look.accessory.id+'.png');
+  list.push(dir+'/identity.png');
+  return {list,acc:'none',head:null};
+ }
+
+ if(id==='ana'){
+  const list=['assets/ana/base.png'];
+  if(look.dress)list.push('assets/ana/dress_'+look.dress.id+'.png');
+  else {if(look.bottom)list.push('assets/ana/bottom_'+look.bottom.id+'.png');if(look.top)list.push('assets/ana/top_'+look.top.id+'.png');}
+  if(look.shoe)list.push('assets/ana/shoe_'+look.shoe.id+'.png');
+  const acc=look.accessory?.id||'none';
+  // Hands and forearms occlude lower garments; hair is a separate foreground mask.
+  list.push('assets/ana/arms.png','assets/ana/hair-front.png');
+  if(acc!=='none')list.push('assets/ana/accessory_'+acc+'.png');
+  return {list,acc:'none',head:null};
+ }
+
  const top=look.top?.id||'orig',bottom=look.bottom?.id||OWN[id],shoe=look.shoe?.id||'white',acc=look.accessory?.id||'none';
  const bare=look.bottom?(look.bottom.kind==='shorts'||look.bottom.id==='mini'):(bottom==='denim'||bottom==='mini');
  const pair=bottom==='mini'?'mini':'denim';
@@ -53,11 +77,11 @@ function drawAccessory(ctx,acc,id){
 }
 async function compose(look,id){
  const {list,acc,head}=layerList(look,id);
- const imgs=await Promise.all(list.map(image)),headImg=await image(head);
- const c=document.createElement('canvas');c.width=W;c.height=H;const ctx=c.getContext('2d');ctx.imageSmoothingQuality='high';
+ const imgs=await Promise.all(list.map(image)),headImg=head?await image(head):null;
+ const c=document.createElement('canvas');c.width=id==='ana'?1024:(fitted[id]?.width||W);c.height=id==='ana'?1536:(fitted[id]?.height||H);const ctx=c.getContext('2d');ctx.imageSmoothingQuality='high';
  imgs.forEach((i,n)=>{
-  ctx.drawImage(i,0,0,W,H);
- });drawAccessory(ctx,acc,id);ctx.drawImage(headImg,0,0,W,H);
+  const rect=fitted[id]?.layers[list[n]];if(rect)ctx.drawImage(i,rect.x,rect.y,rect.w,rect.h);else ctx.drawImage(i,0,0,c.width,c.height);
+ });drawAccessory(ctx,acc,id);if(headImg)ctx.drawImage(headImg,0,0,W,H);
  return c;
 }
 class DressingRoom{
@@ -81,12 +105,14 @@ const icons={
 };
 function thumbnail(item,category,id='nicole'){
  if(item.id==='none')return '<span class="empty-accessory" aria-hidden="true">∅</span>';
+ if(fitted[id])return '<img class="item-photo" src="'+fitted[id].folder+'/thumbs/'+category+'_'+item.id+'.png" alt="" loading="lazy" decoding="async">';
+ if(id==='ana')return '<img class="item-photo" src="assets/ana/thumbs/'+category+'_'+item.id+'.png" alt="" loading="lazy" decoding="async">';
  if(category==='accessory')return '<span class="item-photo item-icon">'+(icons[item.id]||'')+'</span>';
  const file=category==='top'?'top_'+profile(id)+'_'+item.id:category==='bottom'?'bot_'+item.id:'shoe_'+item.id;
  return '<img class="item-photo" src="assets/t/'+file+'.webp" alt="" loading="lazy" decoding="async">';
 }
-function portrait(id){return '<img src="assets/t/portrait_'+profile(id)+'.webp" alt="" draggable="false">';}
+function portrait(id){if(id==='ana')return '<img src="assets/ana/portrait.png" alt="" draggable="false">';return '<img src="assets/t/portrait_'+profile(id)+'.webp" alt="" draggable="false">';}
 const paintThumbnails=()=>{};
-const api={characters,getCharacter,profile,portrait,thumbnail,paintThumbnails,DressingRoom,compose,layerList,OWN,LM};
+const api={fitted,characters,getCharacter,profile,portrait,thumbnail,paintThumbnails,DressingRoom,compose,layerList,OWN,LM};
 if(typeof module!=='undefined')module.exports=api;else root.ClosetAvatar=api;
 })(typeof globalThis!=='undefined'?globalThis:this);
